@@ -193,8 +193,8 @@
         /* Página 3: Álbum de Fotos */
         .photo-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Miniaturas um pouco maiores */
-            gap: 20px; /* Mais espaçamento */
+            grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+            gap: 25px; /* Mais espaçamento */
         }
         .thumbnail {
             position: relative;
@@ -204,20 +204,24 @@
             cursor: pointer;
             box-shadow: var(--shadow-light);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 16 / 9; /* Garante o mesmo formato para todas as miniaturas */
         }
         .thumbnail:hover { 
-            transform: translateY(-5px) scale(1.02); 
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px) scale(1.03); /* Levemente mais dimensionado */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra mais proeminente */
+            z-index: 10; /* Para aparecer por cima de outros itens */
         }
         .thumbnail img {
             width: 100%;
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
+            height: 100%; /* Ocupa 100% da altura do container (com aspect-ratio) */
+            object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
             object-position: center;
             display: block;
             transition: transform 0.5s ease;
         }
-        .thumbnail:hover img { transform: scale(1.08); }
+        .thumbnail:hover img { 
+            transform: scale(1.15); /* Aumenta a imagem dentro da miniatura */
+        }
         .thumbnail .caption-overlay {
             position: absolute;
             bottom: 0; left: 0; right: 0;
@@ -228,11 +232,11 @@
             font-size: 0.9em;
             opacity: 0;
             transition: opacity 0.4s ease;
-            transform: translateY(100%); /* Começa abaixo */
+            transform: translateY(100%); 
         }
         .thumbnail:hover .caption-overlay { 
             opacity: 1; 
-            transform: translateY(0); /* Desliza para cima */
+            transform: translateY(0); 
         }
 
         /* Modal de Imagem */
@@ -245,8 +249,8 @@
             width: 100%; 
             height: 100%; 
             overflow: auto; 
-            background-color: rgba(0,0,0,0.85); /* Fundo um pouco mais escuro */
-            backdrop-filter: blur(8px); /* Mais blur */
+            background-color: rgba(0,0,0,0.85); 
+            backdrop-filter: blur(8px); 
             align-items: center;
             justify-content: center;
             padding: 20px;
@@ -294,7 +298,7 @@
             margin-bottom: 35px;
         }
         #page4 h3 {
-            font-size: 1.5em; /* Títulos de seção um pouco maiores */
+            font-size: 1.5em; 
             color: var(--dark-blue);
             font-weight: bold;
             margin-top: 35px;
@@ -504,7 +508,10 @@
             nav button { padding: 10px 15px; font-size: 0.9em; margin: 3px; }
             .page-container { margin: 20px auto; padding: 0 10px; }
             .box { padding: 25px; }
-            .photo-gallery { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+            .photo-gallery { 
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Volta para auto-fit em telas pequenas */
+                gap: 15px;
+            }
             .modal-content { max-width: 98%; max-height: 90vh; }
             .close { top: 10px; right: 20px; font-size: 35px; }
             #page6 img { max-width: 90%; }
@@ -542,7 +549,7 @@
             <div class="box">
                 <h1>Khatarina Fontes Jambeiro de Jesus</h1>
                 <h2>Atleta de Tênis de Mesa – Em Busca de Novas Conquistas</h2>
-                <img src="k1.jpg" alt="Khatarina Fontes Jambeiro de Jesus">
+                <img src="k1.jpeg" alt="Khatarina Fontes Jambeiro de Jesus">
                 <p class="caption">Inspiração e determinação em cada jogada.</p>
             </div>
         </div>
@@ -596,14 +603,14 @@
             <div class="box">
                 <h2>Galeria de Momentos</h2>
                 <div class="photo-gallery">
-                    <div class="thumbnail" onclick="openModal('k1.jpg')"><img src="k1.jpg" alt="Foto Khatarina 1"><div class="caption-overlay">A atleta em ação</div></div>
-                    <div class="thumbnail" onclick="openModal('k2.jpg')"><img src="k2.jpg" alt="Foto Khatarina 2"><div class="caption-overlay">Concentração no jogo</div></div>
-                    <div class="thumbnail" onclick="openModal('k3.jpg')"><img src="k3.jpg" alt="Foto Khatarina 3"><div class="caption-overlay">Vitória e celebração</div></div>
-                    <div class="thumbnail" onclick="openModal('k4.jpg')"><img src="k4.jpg" alt="Foto Khatarina 4"><div class="caption-overlay">Treino intenso</div></div>
-                    <div class="thumbnail" onclick="openModal('k5.jpg')"><img src="k5.jpg" alt="Foto Khatarina 5"><div class="caption-overlay">Foco total</div></div>
-                    <div class="thumbnail" onclick="openModal('k6.jpg')"><img src="k6.jpg" alt="Foto Khatarina 6"><div class="caption-overlay">Competição</div></div>
-                    <div class="thumbnail" onclick="openModal('k7.jpg')"><img src="k7.jpg" alt="Foto Khatarina 7"><div class="caption-overlay">Estratégia</div></div>
-                    <div class="thumbnail" onclick="openModal('k8.jpg')"><img src="k8.jpg" alt="Foto Khatarina 8"><div class="caption-overlay">Determinação</div></div>
+                    <div class="thumbnail" onclick="openModal('k1.jpeg')"><img src="k1.jpeg" alt="Foto Khatarina 1"><div class="caption-overlay">A atleta em ação</div></div>
+                    <div class="thumbnail" onclick="openModal('k2.jpeg')"><img src="k2.jpeg" alt="Foto Khatarina 2"><div class="caption-overlay">Concentração no jogo</div></div>
+                    <div class="thumbnail" onclick="openModal('k3.jpeg')"><img src="k3.jpeg" alt="Foto Khatarina 3"><div class="caption-overlay">Vitória e celebração</div></div>
+                    <div class="thumbnail" onclick="openModal('k4.jpeg')"><img src="k4.jpeg" alt="Foto Khatarina 4"><div class="caption-overlay">Treino intenso</div></div>
+                    <div class="thumbnail" onclick="openModal('k5.jpeg')"><img src="k5.jpeg" alt="Foto Khatarina 5"><div class="caption-overlay">Foco total</div></div>
+                    <div class="thumbnail" onclick="openModal('k6.jpeg')"><img src="k6.jpeg" alt="Foto Khatarina 6"><div class="caption-overlay">Competição</div></div>
+                    <div class="thumbnail" onclick="openModal('k7.jpeg')"><img src="k7.jpeg" alt="Foto Khatarina 7"><div class="caption-overlay">Estratégia</div></div>
+                    <div class="thumbnail" onclick="openModal('k8.jpeg')"><img src="k8.jpeg" alt="Foto Khatarina 8"><div class="caption-overlay">Determinação</div></div>
                 </div>
             </div>
         </div>
@@ -718,18 +725,15 @@
         const modalImg = document.getElementById("img01");
         
         function showPage(pageNumber) {
-            // Remove 'active' e reseta a transformação para todas as páginas
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
                 page.style.transform = 'translateY(20px)';
                 page.style.opacity = '0';
             });
             
-            // Adiciona 'active' e inicia a transição para a página alvo
             const targetPage = document.getElementById('page' + pageNumber);
             if (targetPage) {
                 targetPage.classList.add('active');
-                // Pequeno delay para garantir que a transição ocorra
                 setTimeout(() => {
                     targetPage.style.transform = 'translateY(0)';
                     targetPage.style.opacity = '1';
@@ -742,7 +746,6 @@
 
         function openModal(src) {
             modal.style.display = "flex"; 
-            // Pequeno delay para a transição do modal
             setTimeout(() => {
                 modal.classList.add('show');
                 modalImg.src = src;
@@ -751,11 +754,10 @@
 
         function closeModal() {
             modal.classList.remove('show');
-            // Esconder o modal após a transição
             setTimeout(() => {
                 modal.style.display = "none";
-                modalImg.src = ""; // Limpa a imagem
-            }, 300); // Deve ser igual ou maior que a duração da transição do modal
+                modalImg.src = "";
+            }, 300);
         }
 
         modal.onclick = function(event) {
@@ -764,7 +766,6 @@
             }
         }
 
-        // Exibir a primeira página ao carregar
         document.addEventListener('DOMContentLoaded', () => {
             showPage(1);
         });
